@@ -825,13 +825,13 @@ export const categories: ProductCategory[] = [
     image: CATEGORY_FALLBACK_IMAGE,
   },
   {
-    slug: "du-san-vuon",
-    title: "Dù Sân Vườn",
-    description:
-      "Dù sân vườn ngoài trời cho biệt thự, villa, hồ bơi và khu nghỉ dưỡng.",
-    href: "/du-san-vuon",
-    image: CATEGORY_FALLBACK_IMAGE,
-  },
+  slug: "du-san-vuon",
+  title: "Dù Sân Vườn",
+  description:
+    "Dù sân vườn ngoài trời cho biệt thự, villa, hồ bơi và khu nghỉ dưỡng.",
+  href: "/du-san-vuon",
+  image: CATEGORY_FALLBACK_IMAGE,
+},
   {
     slug: "nha-bat",
     title: "Nhà bạt di động",

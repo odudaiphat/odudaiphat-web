@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation"
 import { categories, getProductsByCategory } from "@/lib/products"
-import { HOTLINE } from "@/lib/constants"
 import { createMetadata } from "@/lib/metadata"
 import { ProductCard } from "@/components/shared/ProductCard"
 import { FinalCTA } from "@/components/home/FinalCTA"
+import { ContactCTA } from "@/components/shared/ContactCTA"
 
 export const categorySlugs = categories.map((category) => category.slug)
 
@@ -44,7 +44,7 @@ export function CategoryPage({ slug }: { slug: string }) {
     categoryProducts.length > 0 ? categoryProducts : fallbackProducts.slice(0, 6)
 
   return (
-    <main className="bg-white pb-24 text-neutral-950 lg:pb-0">
+    <main className="bg-white text-neutral-950">
       <section className="bg-gradient-to-br from-orange-50 via-white to-amber-50 px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <p className="text-sm font-black uppercase tracking-[0.18em] text-orange-600">
@@ -57,19 +57,14 @@ export function CategoryPage({ slug }: { slug: string }) {
             {category.description} Ô Dù Đại Phát tư vấn theo diện tích, không
             gian sử dụng và ngân sách thực tế.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                        <a
-              href={`tel:${HOTLINE}`}
-              className="inline-flex min-h-[56px] items-center justify-center rounded-2xl bg-orange-500 px-6 py-4 font-extrabold text-white shadow-xl"
-            >
-              Gọi {HOTLINE}
-            </a>
-            <a
-              href="#san-pham"
-              className="inline-flex min-h-[56px] items-center justify-center rounded-2xl border-2 border-neutral-950 bg-white px-6 py-4 font-extrabold text-neutral-950"
-            >
-              Xem sản phẩm
-            </a>
+          <div className="mt-8 grid gap-3 sm:max-w-xl sm:grid-cols-2">
+            <ContactCTA
+              className="contents"
+              primaryLabel="Gọi tư vấn"
+              secondaryLabel="Gửi ảnh mặt bằng"
+              primaryTone="orange"
+              stackOnMobile={false}
+            />
           </div>
         </div>
       </section>

@@ -134,7 +134,7 @@ export default async function ProductDetailPage({
   ]
 
   return (
-    <main className="bg-white pb-24 text-neutral-950 lg:pb-0">
+    <main className="bg-white text-neutral-950">
       <JsonLd data={productSchema(product)} />
       <JsonLd
         data={breadcrumbSchema([

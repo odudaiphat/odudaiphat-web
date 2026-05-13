@@ -4,7 +4,7 @@
  * Hotline: 0349596898
  * © 2026 Ô Dù Đại Phát. All rights reserved.
  */
-import { HOTLINE, ZALO_URL } from "@/lib/constants"
+import { ContactCTA } from "@/components/shared/ContactCTA"
 
 export function FinalCTA() {
   return (
@@ -23,23 +23,7 @@ export function FinalCTA() {
           và vị trí đặt phù hợp với lối đi và khu khách ngồi.
         </p>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:mx-auto lg:max-w-xl">
-          <a
-            href={`tel:${HOTLINE}`}
-            className="inline-flex min-h-[58px] items-center justify-center rounded-2xl bg-[#201d18] px-6 py-4 font-semibold tracking-[0.01em] text-white shadow-[0_18px_46px_rgba(32,29,24,0.16)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#8a602b]"
-          >
-            Gọi {HOTLINE}
-          </a>
-
-          <a
-            href={ZALO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-[58px] items-center justify-center rounded-2xl border border-[#cdb693] bg-[#fffdf9] px-6 py-4 font-semibold tracking-[0.01em] text-[#201d18] transition duration-300 hover:-translate-y-0.5 hover:bg-[#fffaf3]"
-          >
-            Báo giá qua Zalo
-          </a>
-        </div>
+        <ContactCTA className="mt-8 lg:mx-auto lg:max-w-xl" secondaryLabel="Báo giá qua Zalo" />
       </div>
     </section>
   )

@@ -94,7 +94,7 @@ export function LazyYouTubeEmbed({
             src={thumbnailUrl}
             alt=""
             fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover object-center"
           />
           <span className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/12 to-transparent" />

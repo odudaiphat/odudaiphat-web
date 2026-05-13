@@ -23,7 +23,7 @@ function MobileGridControls({
           onClick={() => setMobileColumns(2)}
           aria-label="Hiển thị 2 cột"
           aria-pressed={mobileColumns === 2}
-          className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+          className={`min-h-11 rounded-full px-3.5 py-2 text-xs font-semibold transition ${
             mobileColumns === 2 ? "bg-[#201d18] text-white" : "text-[#6f665b]"
           }`}
         >
@@ -35,7 +35,7 @@ function MobileGridControls({
           onClick={() => setMobileColumns(1)}
           aria-label="Hiển thị 1 cột"
           aria-pressed={mobileColumns === 1}
-          className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+          className={`min-h-11 rounded-full px-3.5 py-2 text-xs font-semibold transition ${
             mobileColumns === 1 ? "bg-[#201d18] text-white" : "text-[#6f665b]"
           }`}
         >
@@ -57,7 +57,7 @@ export function MobileFeaturedProductGrid({ products }: { products: Product[] })
       />
 
       <div
-        className={`mt-7 grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-7 ${
+        className={`mt-7 grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-7 ${
           mobileColumns === 1 ? "grid-cols-1" : "grid-cols-2"
         }`}
       >
@@ -80,7 +80,7 @@ export function MobileCategoryGrid({ categories }: { categories: ProductCategory
       />
 
       <div
-        className={`mt-8 grid gap-5 lg:grid-cols-4 lg:gap-6 ${
+        className={`mt-8 grid gap-4 sm:gap-5 lg:grid-cols-4 lg:gap-6 ${
           mobileColumns === 1 ? "grid-cols-1" : "grid-cols-2 sm:grid-cols-2"
         }`}
       >
@@ -101,11 +101,11 @@ export function MobileCategoryGrid({ categories }: { categories: ProductCategory
               <div className="absolute inset-0 hidden bg-gradient-to-t from-black/16 via-transparent to-white/5 md:block" />
             </div>
 
-            <div className="p-5 sm:p-6">
-              <h3 className="text-[19px] font-semibold tracking-[-0.02em] text-[#201d18] transition group-hover:text-[#8a602b] sm:text-xl sm:font-black">
+            <div className="p-4 sm:p-6">
+              <h3 className="text-[17px] font-semibold leading-tight tracking-[-0.02em] text-[#201d18] transition group-hover:text-[#8a602b] sm:text-xl sm:font-black">
                 {item.title}
               </h3>
-              <p className="mt-3 text-sm leading-7 text-[#62594e]">
+              <p className="mt-2 line-clamp-3 text-sm leading-6 text-[#62594e] sm:mt-3 sm:leading-7">
                 {item.description}
               </p>
             </div>

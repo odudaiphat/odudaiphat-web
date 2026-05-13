@@ -6,14 +6,13 @@
  */
 import Link from "next/link"
 import { HOTLINE } from "@/lib/constants"
-import { categories } from "@/lib/products"
 import { MobileMenu } from "@/components/layout/MobileMenu"
 
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-neutral-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <MobileMenu categories={categories} />
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4 sm:px-6 lg:px-8">
+        <MobileMenu />
 
         <Link href="/" className="text-lg font-semibold text-neutral-950">
           Ô Dù Đại Phát
@@ -45,7 +44,7 @@ export function Header() {
 
         <a
           href={`tel:${HOTLINE}`}
-          className="rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-white"
+          className="inline-flex min-h-11 items-center justify-center rounded-xl bg-orange-500 px-3 text-sm font-semibold text-white sm:px-4"
         >
           {HOTLINE}
         </a>

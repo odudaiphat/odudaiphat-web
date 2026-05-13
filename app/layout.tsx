@@ -38,7 +38,7 @@ openGraph: {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="vi">
-      <body className="pb-24 lg:pb-0">
+      <body className="overflow-x-hidden pb-[calc(104px+env(safe-area-inset-bottom))] lg:pb-0">
         <JsonLd data={organizationSchema()} />
         <Header />
         {children}
