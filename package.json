@@ -4,6 +4,10 @@
   "private": true,
   "author": "Chung Ước Lễ",
   "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "npm@10.8.2",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
