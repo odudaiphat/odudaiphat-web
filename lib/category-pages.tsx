@@ -4,7 +4,6 @@ import { HOTLINE } from "@/lib/constants"
 import { createMetadata } from "@/lib/metadata"
 import { ProductCard } from "@/components/shared/ProductCard"
 import { FinalCTA } from "@/components/home/FinalCTA"
-import { MobileStickyCTA } from "@/components/layout/MobileStickyCTA"
 
 export const categorySlugs = categories.map((category) => category.slug)
 
@@ -130,7 +129,6 @@ export function CategoryPage({ slug }: { slug: string }) {
       </section>
 
       <FinalCTA />
-      <MobileStickyCTA />
     </main>
   )
 }

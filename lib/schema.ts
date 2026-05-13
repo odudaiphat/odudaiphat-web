@@ -18,10 +18,6 @@ function absoluteUrl(path: string) {
     : `${SITE_URL}${path}`
 }
 
-function isVerifiedValue(field?: VerifiedValue) {
-  return Boolean(field?.verified && field.value && field.value !== "CẦN XÁC MINH")
-}
-
 function propertyValue(name: string, value: string) {
   return {
     "@type": "PropertyValue",

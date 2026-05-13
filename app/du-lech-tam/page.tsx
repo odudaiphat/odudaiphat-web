@@ -1,7 +1,6 @@
 import { JsonLd } from "@/components/seo/OrganizationSchema"
 import { ProductVariations } from "@/components/money-pages/ProductVariations"
 import { FAQAccordion } from "@/components/shared/FAQAccordion"
-import { MobileStickyCTA } from "@/components/layout/MobileStickyCTA"
 import { FinalCTA } from "@/components/home/FinalCTA"
 import { createMetadata } from "@/lib/metadata"
 import { breadcrumbSchema, faqSchema, productSchema } from "@/lib/schema"
@@ -30,7 +29,6 @@ export default function DuLechTamPage() {
         <FAQAccordion faqs={duLechTamFaqs} />
       </section>
 
-      <MobileStickyCTA />
     </main>
   )
 }

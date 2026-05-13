@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useCallback, useRef, useState, type PointerEvent } from "react"
 
 type LazyYouTubeEmbedProps = {
@@ -89,12 +90,12 @@ export function LazyYouTubeEmbed({
           onClick={handlePlay}
           onFocus={warmupVideo}
         >
-          <img
+          <Image
             src={thumbnailUrl}
             alt=""
-            className="absolute inset-0 h-full w-full object-cover object-center"
-            loading="lazy"
-            decoding="async"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover object-center"
           />
           <span className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/12 to-transparent" />
           <span className="relative m-4 inline-flex items-center gap-3 rounded-full border border-white/20 bg-black/38 px-4 py-3 text-white shadow-[0_14px_34px_rgba(0,0,0,0.28)] backdrop-blur-md transition duration-200 group-hover:scale-[1.015] group-active:scale-[0.985] sm:m-5">

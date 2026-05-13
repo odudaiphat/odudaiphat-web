@@ -19,18 +19,18 @@ type MobileMenuProps = {
   categories: MobileMenuCategory[]
 }
 
-const mainMobileLinks = [
-  { href: "/du-lech-tam", label: "Dù lệch tâm" },
-  { href: "/du-chinh-tam", label: "Dù chính tâm" },
-  { href: "/o-du-cafe", label: "Ô dù cafe" },
-  { href: "/nha-bat", label: "Nhà bạt di động" },
+const secondaryMobileLinks = [
   { href: "/#cong-trinh-thuc-te", label: "Công trình thực tế" },
   { href: "/sua-chua-o-du-ngoai-troi", label: "Sửa chữa ô dù" },
   { href: "/#bao-gia", label: "Liên hệ / Báo giá" },
 ]
 
-export function MobileMenu({ categories: _categories }: MobileMenuProps) {
+export function MobileMenu({ categories }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const mobileLinks = [
+    ...categories.map((category) => ({ href: category.href, label: category.title })),
+    ...secondaryMobileLinks,
+  ]
 
   return (
     <div className="relative md:hidden">
@@ -49,7 +49,7 @@ export function MobileMenu({ categories: _categories }: MobileMenuProps) {
           aria-label="Menu danh mục mobile"
           className="absolute left-0 top-full mt-3 w-56 rounded-2xl border border-neutral-200 bg-white p-2 shadow-xl"
         >
-          {mainMobileLinks.map((item) => (
+          {mobileLinks.map((item) => (
             <Link
               key={item.href}
               href={item.href}

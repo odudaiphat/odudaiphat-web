@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation"
 import { JsonLd } from "@/components/seo/OrganizationSchema"
 import { FinalCTA } from "@/components/home/FinalCTA"
-import { MobileStickyCTA } from "@/components/layout/MobileStickyCTA"
 import { ProductGallery } from "@/components/product/ProductGallery"
 import { ProductVideos } from "@/components/product/ProductVideos"
 import { breadcrumbSchema, faqSchema, productSchema } from "@/lib/schema"
@@ -243,7 +242,6 @@ export default async function ProductDetailPage({
       </section>
 
       <FinalCTA />
-      <MobileStickyCTA />
     </main>
   )
 }
