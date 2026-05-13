@@ -1,0 +1,190 @@
+--- /mnt/data/oduorig/odulechtam-main/app/page.tsx	2026-05-10 23:23:36.000000000 +0000
++++ app/page.tsx	2026-05-11 00:26:56.907857862 +0000
+@@ -14,6 +14,7 @@
+ import { HomeRealProjects } from "@/components/home/HomeRealProjects"
+ import { HomeTrustVideo } from "@/components/home/HomeTrustVideo"
+ import { HomeVillaSection } from "@/components/home/HomeVillaSection"
++import { MobileRealProjectsSummary } from "@/components/home/MobileRealProjectsSummary"
+ import { TrustSection } from "@/components/home/TrustSection"
+ import { HOTLINE, ZALO_URL } from "@/lib/constants"
+ import { createMetadata } from "@/lib/metadata"
+@@ -32,8 +33,9 @@
+       <Hero />
+       <CategoryGrid />
+       <FeaturedProducts />
++      <MobileRealProjectsSummary />
+ 
+-      <section id="bao-gia" className="px-4 py-10 md:hidden">
++      <section id="bao-gia" className="px-4 py-8 md:hidden">
+         <div className="rounded-[28px] border border-[#e0d1bd] bg-[#f7f1e8] p-5 text-center shadow-[0_18px_55px_rgba(32,29,24,0.08)]">
+           <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8a602b]">
+             Tư vấn nhanh
+@@ -51,7 +53,7 @@
+               href={`tel:${HOTLINE}`}
+               className="inline-flex min-h-[54px] items-center justify-center rounded-2xl bg-[#201d18] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_38px_rgba(32,29,24,0.16)]"
+             >
+-              Gọi tư vấn {HOTLINE}
++              Gọi ngay {HOTLINE}
+             </a>
+             <a
+               href={ZALO_URL}
+@@ -59,7 +61,7 @@
+               rel="noopener noreferrer"
+               className="inline-flex min-h-[54px] items-center justify-center rounded-2xl border border-[#cdb693] bg-white px-5 py-3 text-sm font-semibold text-[#201d18]"
+             >
+-              Gửi ảnh Zalo
++              Gửi ảnh mặt bằng qua Zalo
+             </a>
+           </div>
+         </div>
+--- /mnt/data/oduorig/odulechtam-main/components/home/Hero.tsx	2026-05-10 23:23:36.000000000 +0000
++++ components/home/Hero.tsx	2026-05-11 00:26:56.907268232 +0000
+@@ -14,12 +14,12 @@
+               Dù lệch tâm · Dù chính tâm · Ô dù cafe
+             </div>
+ 
+-            <h1 className="mt-3 max-w-2xl text-[30px] font-semibold leading-[1.1] tracking-[-0.035em] text-[#201d18] md:mt-5 md:text-[clamp(46px,6vw,68px)] md:leading-[1.02] md:tracking-[-0.045em]">
+-              Ô Dù Ngoài Trời Cho Cafe, Sân Vườn & Hồ Bơi
++            <h1 className="mt-3 max-w-xl text-[28px] font-semibold leading-[1.08] tracking-[-0.035em] text-[#201d18] md:mt-5 md:max-w-2xl md:text-[clamp(42px,5.2vw,58px)] md:leading-[1.04] md:tracking-[-0.045em]">
++              Ô Dù Ngoài Trời Cao Cấp Cho Cafe, Sân Vườn & Hồ Bơi
+             </h1>
+ 
+-            <p className="mt-3 max-w-xl text-[15px] leading-7 text-[#5f574d] md:mt-6 md:text-lg md:leading-9">
+-              Tư vấn dù lệch tâm, dù chính tâm, ô dù cafe theo mặt bằng thực tế. Gửi ảnh qua Zalo để chọn đúng kích thước, màu vải và vùng che.
++            <p className="mt-3 max-w-lg text-[14px] leading-6 text-[#5f574d] md:mt-6 md:max-w-xl md:text-lg md:leading-8">
++              Tư vấn mẫu dù, kích thước và màu vải theo mặt bằng thực tế. Gửi ảnh qua Zalo để chọn vùng che phù hợp.
+             </p>
+ 
+             <div className="mt-5 grid gap-3 sm:flex sm:flex-wrap md:mt-8">
+@@ -27,7 +27,7 @@
+                 href={`tel:${HOTLINE}`}
+                 className="inline-flex min-h-[54px] items-center justify-center rounded-2xl bg-[#201d18] px-6 py-3.5 text-sm font-semibold tracking-[0.01em] text-white shadow-[0_24px_70px_rgba(32,29,24,0.2)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#8a602b]"
+               >
+-                Gọi 0349596898
++                Gọi ngay {HOTLINE}
+               </a>
+ 
+               <a
+@@ -36,7 +36,7 @@
+                 rel="noopener noreferrer"
+                 className="inline-flex min-h-[54px] items-center justify-center rounded-2xl border border-[#d2bea2] bg-white/90 px-6 py-3.5 text-sm font-semibold tracking-[0.01em] text-[#201d18] shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[#fffaf3]"
+               >
+-                Gửi ảnh Zalo
++                Gửi ảnh mặt bằng qua Zalo
+               </a>
+             </div>
+ 
+@@ -53,12 +53,12 @@
+             </div>
+           </div>
+ 
+-          <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
++          <div className="relative mx-auto w-full max-w-[430px] md:max-w-[560px] lg:max-w-none">
+             <div className="absolute -left-5 top-10 h-36 w-36 rounded-full bg-[#d8c19a]/50 blur-3xl" />
+             <div className="absolute -bottom-6 -right-5 h-44 w-44 rounded-full bg-[#f1dec0]/70 blur-3xl" />
+ 
+-            <div className="relative rounded-[34px] border border-white/80 bg-white/55 p-2 shadow-[0_36px_100px_rgba(32,29,24,0.18)] backdrop-blur">
+-              <div className="relative aspect-[3/4] overflow-hidden rounded-[28px] bg-[#ede5da] ring-1 ring-black/5">
++            <div className="relative rounded-[30px] border border-white/80 bg-white/55 p-1.5 shadow-[0_28px_80px_rgba(32,29,24,0.14)] backdrop-blur md:rounded-[34px] md:p-2 md:shadow-[0_36px_100px_rgba(32,29,24,0.18)]">
++              <div className="relative aspect-[3/4] overflow-hidden rounded-[24px] bg-[#ede5da] ring-1 ring-black/5 md:rounded-[28px]">
+                 <Image
+                   src="/images/home/real-villa-hero.webp"
+                   alt="Công trình ô dù lệch tâm vuông 3m ngoài trời cho không gian sân vườn"
+@@ -66,9 +66,9 @@
+                   priority
+                   quality={92}
+                   sizes="(max-width: 768px) 100vw, 50vw"
+-                  className="object-cover object-center transition duration-700 hover:scale-[1.012]"
++                  className="object-cover object-[50%_45%] transition duration-700 hover:scale-[1.012] md:object-center"
+                 />
+-                <div className="absolute inset-0 bg-gradient-to-t from-black/18 via-black/0 to-white/5 md:from-black/34 md:via-black/4" />
++                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-black/0 to-white/5 md:from-black/34 md:via-black/4" />
+                 <div className="absolute bottom-4 left-4 right-4 hidden rounded-3xl border border-white/25 bg-[#201d18]/74 p-4 text-white shadow-2xl backdrop-blur-md md:block sm:bottom-5 sm:left-5 sm:right-auto sm:max-w-xs">
+                   <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#e8d2aa]">
+                     Công trình đã giao lắp
+--- /mnt/data/oduorig/odulechtam-main/components/home/MobileRealProjectsSummary.tsx	2026-05-10 23:23:36.000000000 +0000
++++ components/home/MobileRealProjectsSummary.tsx	2026-05-11 00:26:56.908415165 +0000
+@@ -10,32 +10,38 @@
+ const projectImages = [
+   {
+     src: "/images/projects/real-villa-outdoor-dining-01.webp",
++    title: "Villa sân vườn",
+     alt: "Công trình lắp đặt dù ngoài trời thực tế tại sân vườn",
+   },
+   {
+     src: "/images/projects/real-villa-outdoor-dining-02.webp",
++    title: "Khu bàn ngoài trời",
+     alt: "Khu bàn ngoài trời sử dụng dù lệch tâm thực tế",
+   },
+   {
+     src: "/images/projects/real-cafe-installation-01.webp",
++    title: "Giao lắp thực tế",
+     alt: "Giao lắp dù ngoài trời thực tế cho mặt bằng kinh doanh",
+   },
+ ]
+ 
+ export function MobileRealProjectsSummary() {
+   return (
+-    <section className="bg-[#201d18] px-4 py-10 text-white md:hidden">
++    <section className="bg-[#201d18] px-4 py-9 text-white md:hidden">
+       <div className="mx-auto max-w-md">
+-        <div className="text-center">
+-          <h2 className="text-[26px] font-semibold leading-tight tracking-[-0.03em]">
+-            Công Trình Thực Tế
++        <div>
++          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#d8bc8c]">
++            Thực tế đã giao lắp
++          </p>
++          <h2 className="mt-2 text-[24px] font-semibold leading-tight tracking-[-0.03em]">
++            Công Trình & Giao Lắp Thực Tế
+           </h2>
+-          <p className="mt-3 text-sm leading-6 text-white/72">
+-            Hình ảnh và video lắp đặt thực tế.
++          <p className="mt-3 text-sm leading-6 text-white/70">
++            Gom video, villa, cafe và khu bàn ngoài trời vào một khu gọn để khách xem nhanh trên mobile.
+           </p>
+         </div>
+ 
+-        <div className="mt-6 overflow-hidden rounded-[28px] border border-white/10 bg-black shadow-[0_24px_70px_rgba(0,0,0,0.28)]">
++        <div className="mt-5 overflow-hidden rounded-[26px] border border-white/10 bg-black shadow-[0_22px_60px_rgba(0,0,0,0.26)]">
+           <LazyYouTubeEmbed
+             youtubeId="SHJj26NeNmY"
+             title="Video lắp đặt thực tế Ô Dù Đại Phát"
+@@ -45,20 +51,26 @@
+           />
+         </div>
+ 
+-        <div className="mt-4 grid grid-cols-3 gap-3">
++        <div className="mt-4 flex gap-3 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+           {projectImages.map((image) => (
+-            <div
++            <article
+               key={image.src}
+-              className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/10 bg-stone-100"
++              className="min-w-[68%] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.05] shadow-[0_18px_48px_rgba(0,0,0,0.2)]"
+             >
+-              <Image
+-                src={image.src}
+-                alt={image.alt}
+-                fill
+-                sizes="(max-width: 768px) 33vw, 160px"
+-                className="object-contain object-center"
+-              />
+-            </div>
++              <div className="relative aspect-[3/4] bg-[#eee6dc]">
++                <Image
++                  src={image.src}
++                  alt={image.alt}
++                  fill
++                  sizes="70vw"
++                  className="object-cover object-center"
++                />
++                <div className="absolute inset-0 bg-gradient-to-t from-black/38 via-transparent to-transparent" />
++                <p className="absolute bottom-3 left-3 right-3 text-sm font-semibold tracking-[-0.01em] text-white">
++                  {image.title}
++                </p>
++              </div>
++            </article>
+           ))}
+         </div>
+       </div>
